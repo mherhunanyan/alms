@@ -1,0 +1,15 @@
+# dependencies
+/node_modules
+
+# Environment variables
+.env
+
+# Logs
+logs
+*.log
+
+# Operating Sytem Files
+.DS_Store
+
+#Others
+dist
