@@ -9,6 +9,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-image: url('/images/background-image.png');
+  background-size: cover; 
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .main {

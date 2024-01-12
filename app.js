@@ -1,35 +1,72 @@
-const path = require('path');
-const express = require('express')
-const ejsLayouts = require('express-ejs-layouts');
+const path = require("path");
+const mongoose = require("mongoose");
+const Config = require("./config");
+const express = require("express");
+const ejsLayouts = require("express-ejs-layouts");
+const session = require("express-session");
+const bodyParser = require("body-parser");
+const MongoDBStore = require("connect-mongodb-session")(session);
+const mainRouter = require("./routes/main");
+const authRouter = require("./routes/auth");
+const sessionMiddleware = require("./middleware/sessionMiddleware");
+const localsMiddleware = require("./middleware/localsMiddleware");
+const flash = require('connect-flash');
 
-const app = express()
-const port = 3000
+// create express app
+const app = express();
 
-app.set('view engine', 'ejs');
+// view engine config
+app.set("view engine", "ejs");
 app.use(ejsLayouts);
-app.set('layout', 'layouts/main');
-app.use(express.static(path.join(__dirname, 'public')));
+app.set("layout", "layouts/main");
 
-app.get('/', (req, res) => {
-  res.render('home', {pageTitle: 'Home'})
-})
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
 
-app.get('/catalog', (req, res) => {
-  res.render('books/index', {pageTitle: 'Catalog'})
-})
+// session config
+const sessionsStore = new MongoDBStore({
+  uri: Config.mongodbUrl,
+  collection: "sessions",
+});
+app.use(
+  session({
+    secret: Config.sessionSecret,
+    resave: false,
+    saveUninitialized: false,
+    store: sessionsStore,
+  })
+);
 
-app.get('/login', (req, res) => {
-  res.render('users/login', {pageTitle: 'Login'})
-})
+// use middlewares
+app.use(flash());
+app.use(sessionMiddleware);
+app.use(localsMiddleware);
 
-app.get('/register', (req, res) => {
-  res.render('users/register', {pageTitle: 'Register'})
-})
+// use routes
+app.use(mainRouter);
+app.use(authRouter);
 
-app.use((req, res, next) => {
-  res.render('errors/404', { pageTitle: 'Page Not Found' });
+app.get("/catalog", (req, res) => {
+  res.render("books/index", { pageTitle: "Catalog" });
 });
 
-app.listen(port, () => {
-  console.log(`ALMS app listening on port ${port}`)
-})
+app.use((req, res, next) => {
+  res.render("errors/404", { pageTitle: "Page Not Found" });
+});
+
+// init app
+const init = async () => {
+  try {
+    await mongoose.connect(Config.mongodbUrl);
+    console.error("MongoDB Connected!");
+  } catch (err) {
+    console.error("Failed to connect DB");
+    throw err;
+  }
+
+  app.listen(Config.port, () => {
+    console.log(`ALMS app listening on port ${Config.port}`);
+  });
+};
+
+init();

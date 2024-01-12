@@ -1,0 +1,20 @@
+<div class="login-container">
+  <div class="login-form">
+    <h2>Login</h2>
+    <% if (errorMessage) { %>
+      <p class="error-text"><%= errorMessage %></p>
+    <% } %>
+    <form action="/login" method="POST">
+      <div>
+        <label for="email">Email Address</label>
+        <input type="email" name="email" />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <a href="/register">Switch to Registration</a>
+  </div>
+</div>
