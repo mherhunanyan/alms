@@ -10,14 +10,15 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/book.css">
 </head>
 <body>
-  <%- include('../partials/header') %>
+  <%- include('./partials/header') %>
   <main class="main"><%- body %></main>
   <% if (footer === "simple") { %>
-    <%- include('../partials/simpleFooter'); %>
+    <%- include('./partials/simpleFooter'); %>
   <% } else { %>
-    <%- include('../partials/footer'); %>
+    <%- include('./partials/footer'); %>
   <% } %>
 </body>
 </html>

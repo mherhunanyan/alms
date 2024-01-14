@@ -8,22 +8,21 @@ const bodyParser = require("body-parser");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const mainRouter = require("./routes/main");
 const authRouter = require("./routes/auth");
+const bookRouter = require("./routes/book");
+const errorController = require("./controllers/errorController");
 const sessionMiddleware = require("./middleware/sessionMiddleware");
 const localsMiddleware = require("./middleware/localsMiddleware");
-const flash = require('connect-flash');
+const flash = require("connect-flash");
 
-// create express app
 const app = express();
 
-// view engine config
 app.set("view engine", "ejs");
 app.use(ejsLayouts);
-app.set("layout", "layouts/main");
+app.set("layout", "main");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// session config
 const sessionsStore = new MongoDBStore({
   uri: Config.mongodbUrl,
   collection: "sessions",
@@ -37,24 +36,17 @@ app.use(
   })
 );
 
-// use middlewares
 app.use(flash());
 app.use(sessionMiddleware);
 app.use(localsMiddleware);
 
-// use routes
 app.use(mainRouter);
 app.use(authRouter);
+app.use(bookRouter);
 
-app.get("/catalog", (req, res) => {
-  res.render("books/index", { pageTitle: "Catalog" });
-});
+app.use(errorController.get404);
+app.use(errorController.get500);
 
-app.use((req, res, next) => {
-  res.render("errors/404", { pageTitle: "Page Not Found" });
-});
-
-// init app
 const init = async () => {
   try {
     await mongoose.connect(Config.mongodbUrl);

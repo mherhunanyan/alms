@@ -10,9 +10,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
   background-image: url('/images/background-image.png');
-  background-size: cover; 
-  background-position: center center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
 }
 
 .main {
@@ -51,4 +50,14 @@ body {
 
 .error-container a:hover {
     background-color: #555;
+}
+
+.error-text {
+  margin-bottom: 10px;
+  color: red;
+}
+
+.success-text {
+  margin-bottom: 10px;
+  color: green;
 }

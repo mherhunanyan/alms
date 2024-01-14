@@ -6,6 +6,8 @@ const sessionMiddleware = async (req, res, next) => {
   }
   try {
     req.user = await User.findById(req.session.userId);
+    req.isAuth = true;
+    req.isAdmin = req.user?.role === "admin";
     next();
   } catch (err) {
     console.error(err);

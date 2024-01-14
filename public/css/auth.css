@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 65vh;
+    margin: 100px 0;
 }
 
 .login-form {
@@ -14,7 +14,6 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 427px;
-    height: 430px;
 }
 
 .login-form h2 {
@@ -61,7 +60,3 @@
     color: #008080;
 }
 
-.error-text {
-    margin-bottom: 10px;
-    color: red;
-}

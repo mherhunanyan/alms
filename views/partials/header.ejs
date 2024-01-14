@@ -1,21 +1,24 @@
 <header class="header">
-    <nav class="nav-bar">
-      <a href="/" class="logo">
-        <img src="images/logo.png" alt="Logo" />
-      </a>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/catalog">Catalog</a></li>
-        <% if(isAuth) { %>
-          <div class="header-name-dropdown">
-              <button class="header-name"><%= user.fullName %></button>
-              <div class="header-name-dropdown-content">
-                  <a href="/logout">Logout</a>
-              </div>
-          </div>
-        <% } else { %>
-        <li><a href="/login">Login</a></li>
-        <% } %>
-      </ul>
-    </nav>
+  <nav class="nav-bar">
+    <a href="/" class="logo">
+      <img src="images/logo.png" alt="Logo" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/catalog">Catalog</a></li>
+      <% if(isAdmin) { %>
+      <li><a href="/add-book">Add Book</a></li>
+      <% } %>
+      <% if(isAuth) { %>
+      <div class="header-name-dropdown">
+        <button class="header-name"><%= user.fullName %></button>
+        <div class="header-name-dropdown-content">
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+      <% } else { %>
+      <li><a href="/login">Login</a></li>
+      <% } %>
+    </ul>
+  </nav>
 </header>
