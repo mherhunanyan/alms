@@ -1,7 +1,7 @@
 const Book = require("../models/book");
 
 const getAddBook = (req, res, next) => {
-  res.render("book/add-book", { pageTitle: "Add New Book" });
+  res.render("book/add-book", { pageTitle: "Add New Book", page: "/add-book" });
 };
 
 const postAddBook = async (req, res, next) => {
@@ -35,7 +35,7 @@ const postAddBook = async (req, res, next) => {
 const getCatalog = async (req, res, next) => {
   try {
     const books = await Book.find({}).limit(100);
-    res.render("book/catalog", { pageTitle: "Catalog", books });
+    res.render("book/catalog", { pageTitle: "Catalog", page: "/catalog", books });
   } catch (err) {
     console.error(err);
   }
@@ -53,7 +53,7 @@ const postCatalog = async (req, res, next) => {
     };
 
     const books = await Book.find(query).limit(100);
-    res.render("book/catalog", { pageTitle: "Catalog", books, search });
+    res.render("book/catalog", { pageTitle: "Catalog", page: "/catalog", books, search });
   } catch (err) {
     console.error(err);
   }

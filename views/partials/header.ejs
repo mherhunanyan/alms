@@ -4,12 +4,27 @@
       <img src="images/logo.png" alt="Logo" />
     </a>
     <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/catalog">Catalog</a></li>
+      <li>
+        <a href="/" class="<%= page === '/' ? 'active-link': '' %> nav-link"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          href="/catalog"
+          class="<%= page === '/catalog' ? 'active-link' : '' %> nav-link"
+          >Catalog</a
+        >
+      </li>
       <% if(isAdmin) { %>
-      <li><a href="/add-book">Add Book</a></li>
-      <% } %>
-      <% if(isAuth) { %>
+      <li>
+        <a
+          href="/add-book"
+          class="<%= page === '/add-book' ? 'active-link' : '' %> nav-link"
+          >Add Book</a
+        >
+      </li>
+      <% } %> <% if(isAuth) { %>
       <div class="header-name-dropdown">
         <button class="header-name"><%= user.fullName %></button>
         <div class="header-name-dropdown-content">
@@ -17,7 +32,13 @@
         </div>
       </div>
       <% } else { %>
-      <li><a href="/login">Login</a></li>
+      <li>
+        <a
+          href="/login"
+          class="<%= page === '/login' ? 'active-link' : '' %> nav-link"
+          >Login</a
+        >
+      </li>
       <% } %>
     </ul>
   </nav>

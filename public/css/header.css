@@ -30,7 +30,7 @@
     margin-left: 20px;
 }
 
-.nav-links li a {
+.nav-link {
     text-decoration: none;
     color: #333;
     font-size: 16px;
@@ -38,7 +38,7 @@
     padding: 5px 10px;
 }
 
-.nav-links li a:hover {
+.active-link {
     color: blue;
 }
 
