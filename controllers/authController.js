@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 
 const getLogin = (req, res, next) => {
-  res.render("auth/login", { pageTitle: "Login", page: "/login", footer: "simple" });
+  res.render("auth/login", { pageTitle: "Login", footer: "simple" });
 };
 
 const postLogin = async (req, res, next) => {
@@ -32,7 +32,7 @@ const postLogin = async (req, res, next) => {
 };
 
 const getRegister = (req, res, next) => {
-  res.render("auth/register", { pageTitle: "Register", page: "/register", footer: "simple" });
+  res.render("auth/register", { pageTitle: "Register", footer: "simple" });
 };
 
 const postRegister = async (req, res, next) => {

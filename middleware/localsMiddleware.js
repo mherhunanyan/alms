@@ -5,6 +5,7 @@ const localsMiddleware = (req, res, next) => {
   res.locals.footer = "basic";
   res.locals.errorMessage = req.flash('errorMessage')?.[0];
   res.locals.successMessage = req.flash('successMessage')?.[0];
+  res.locals.page = req.path;
   next();
 };
 
