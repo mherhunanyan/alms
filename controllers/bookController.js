@@ -1,5 +1,22 @@
 const Book = require("../models/book");
 
+const getBook = async (req, res, next) => {
+  const isbn = req.params.isbn;
+  const book = await Book.findOne({ isbn });
+  if (book) {
+    const relatedBooks = await Book.find({
+      $or: [
+        { author: book.author },
+        { category: book.category }
+      ],
+      isbn: { $ne: isbn }
+    }).limit(3);
+    res.render("book/book", { book, relatedBooks, pageTitle: book.title });
+  } else {
+    res.render("errors/404", { pageTitle: "Page Not Found" });
+  }
+};
+
 const getAddBook = (req, res, next) => {
   res.render("book/add-book", { pageTitle: "Add New Book" });
 };
@@ -64,4 +81,5 @@ module.exports = {
   postAddBook,
   getCatalog,
   postCatalog,
+  getBook,
 };

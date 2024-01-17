@@ -9,9 +9,11 @@
   <div class="book-grid-container">
     <% books.forEach(book => { %>
     <div class="book-grid-item">
-      <img width="200px" src="<%= book.imageUrl %>" />
-      <h3><%= book.title %></h3>
-      <p><%= book.author %></p>
+      <a href="/book/<%= book.isbn %>" class="book-link">
+        <img width="200px" src="<%= book.imageUrl %>" />
+        <h3><%= book.title %></h3>
+        <p><%= book.author %></p>
+      </a>
     </div>
     <% }) %>
   </div>

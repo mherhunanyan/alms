@@ -1,14 +1,17 @@
 <div class="home">
-  <h1 class="home-title">Academy Library</h1>
-  <h2 class="collection-title">Collection of Books</h2>
-  <div class="book-grid-container">
+    <h1 class="home-title">Academy Library</h1>
+    <h2 class="collection-title">Collection of Books</h2>
+    <div class="book-grid-container">
       <% books.forEach(book => { %>
-          <div class="book-grid-item">
-              <img src="<%= book.imageUrl %>" />
-              <h3><%= book.title %></h3>
-              <p><%= book.author %></p>
-          </div>
+      <div class="book-grid-item">
+        <a href="/book/<%= book.isbn %>" class="book-link">
+          <img src="<%= book.imageUrl %>" />
+          <h3><%= book.title %></h3>
+          <p><%= book.author %></p>
+        </a>
+      </div>
       <% }) %>
+    </div>
+    <a href="/catalog" class="view-all-btn">View All</a>
   </div>
-  <a href="/catalog" class="view-all-btn">View All</a>
-</div>
+  
