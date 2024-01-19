@@ -1,28 +1,30 @@
 <div class="individual-book-container">
+  <img
+    class="book-cover"
+    alt="Cover of <%= book.title %>"
+    src="<%= book.imageUrl %>"
+  />
   <div class="individual-book-details">
     <h2 class="book-title"><%= book.title %></h2>
-    <img
-      class="book-cover"
-      alt="Cover of <%= book.title %>"
-      src="<%= book.imageUrl %>"
-    />
-    <p class="book-author"><%= book.author %></p>
+    <p class="book-author"><%= book.author %></p> 
   </div>
 </div>
 
 <div class="related-books">
+  <% if (relatedBooks.length) { %>
   <h2 class="related-book-title">Related Books</h2>
   <div class="related-book-container">
-      <% relatedBooks.forEach((relatedBook) => { %>
-      <div class="related-book-item">
-        <img
-          class="related-book-cover"
-          alt="Cover of <%= relatedBook.title %>"
-          src="<%= relatedBook.imageUrl %>"
-        />
-        <h3 class="related-books-title"><%= relatedBook.title %></h3>
-        <p class="related-book-author"><%= relatedBook.author %></p>
-      </div>
-      <% }); %>
+    <% relatedBooks.forEach((relatedBook) => { %>
+    <div class="related-book-item">
+      <img
+        class="related-book-cover"
+        alt="Cover of <%= relatedBook.title %>"
+        src="<%= relatedBook.imageUrl %>"
+      />
+      <h3 class="related-books-title"><%= relatedBook.title %></h3>
+      <p class="related-book-author"><%= relatedBook.author %></p>
+    </div>
+    <% }); %>
   </div>
+  <% } %>
 </div>
