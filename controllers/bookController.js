@@ -61,7 +61,7 @@ const postEditBook = async (req, res, next) => {
       await Book.findOneAndUpdate({ isbn }, updatedBookDate);
       res.redirect(`/book/${isbn}`);
     } else {
-      throw Error("Book Not Exist");
+      throw new Error("Book Not Exist");
     }
   } catch (err) {
     console.error(err);
