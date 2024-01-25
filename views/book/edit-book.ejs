@@ -1,0 +1,45 @@
+<div class="edit-book-container">
+  <div class="edit-book-form">
+    <h2 class="title-edit-book-page">Edit Book</h2>
+    <form class="form-items" action="/edit-book/<%= book.isbn %>" method="post">
+      <div class="div-item form-item">
+        <label for="title">Title</label>
+        <input class="edit-book-input" type="text" name="title" value="<%= book.title %>" required />
+      </div>
+      <div class="div-item form-item">
+        <label for="author">Author</label>
+        <input class="edit-book-input" type="text" name="author" value="<%= book.author %>" required />
+      </div>
+      <div class="div-item form-item">
+        <label for="isbn">ISBN</label>
+        <input class="edit-book-input" type="text" name="isbn" value="<%= book.isbn %>" readonly />
+      </div>
+      <div class="div-item form-item">
+        <label for="category">Category</label>
+        <input class="edit-book-input" type="text" name="category" value="<%= book.category %>" required />
+      </div>
+      <div class="div-item form-item">
+        <label for="imageUrl">Image Url</label>
+        <input class="edit-book-input" type="url" name="imageUrl" value="<%= book.imageUrl %>" required />
+      </div>
+      <div class="div-item availability-control">
+        <% if (book.availability) { %>
+        <input
+          class="availability-control-checkbox"
+          type="checkbox"
+          name="availability"
+          checked
+        />
+        <% } else { %>
+          <input
+          class="availability-control-checkbox"
+          type="checkbox"
+          name="availability"
+        />
+        <% } %>
+        <span>Availability</span>
+      </div>
+      <button class="edit-form-button" type="submit">Submit</button>
+    </form>
+  </div>
+</div>

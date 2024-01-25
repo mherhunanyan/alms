@@ -7,6 +7,14 @@
   <div class="individual-book-details">
     <h2 class="book-title"><%= book.title %></h2>
     <p class="book-author"><%= book.author %></p> 
+    <% if (isAdmin) { %>
+    <div class="buttom-form">
+      <a class="editButton" href="/edit-book/<%= book.isbn %>">Edit</a>
+      <form class="buttons-form" action="/book-delete/<%= book.isbn %>" method="post">
+        <button type="submit" class="delButton">Delete</button>
+      </form>
+    </div>
+    <% } %>
   </div>
 </div>
 

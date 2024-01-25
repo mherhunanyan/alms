@@ -171,7 +171,7 @@
 }
 
 .book-cover:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .related-book-title {
@@ -205,7 +205,7 @@
 }
 
 .related-books-title {
-  margin-top: 20px;
+  margin-top: 1.5em;
 }
 
 .individual-book-container {
@@ -223,10 +223,144 @@
 }
 
 .book-title {
-  font-size: 30px;
+  font-size: 1.875em;
   width: 800px;
 }
 
 .book-author {
-  font-size: 20px;
+  font-size: 1.25em;
+}
+
+.buttom-form {
+  display: flex;
+  gap: 40px;
+  margin-top: auto;
+}
+
+.editButton {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding: 0.625em 1.5em;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.554);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.editButton:hover {
+  background-color: rgba(0, 0, 0, 0.697);
+}
+
+.delButton {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 0.625em 1.5em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delButton:hover {
+  background-color: #c0392b;
+}
+
+.edit-book-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.edit-book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 427px;
+}
+
+.form-item {
+  gap: 10px;
+}
+
+.availability-control {
+}
+
+.form-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-edit-book-page {
+  text-align: center;
+  font-size: 30px;
+  font-family: sans-serif;
+  margin-bottom: 20px;
+}
+
+.div-item {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  margin-bottom: 20px;
+}
+
+.form-button {
+  width: 100%;
+  padding: 9px;
+  font-size: 17px;
+  font-family: sans-serif;
+  background-color: rgba(0, 0, 0, 0.778);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.title-edit-book-page {
+  text-align: center;
+}
+
+.edit-book-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.availability-control {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: start;
+  gap: 10px;
+}
+
+.availability-control-checkbox {
+  width: 20px !important;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.edit-form-button {
+  width: 100%;
+  padding: 9px;
+  font-size: 17px;
+  font-family: sans-serif;
+  background-color: rgba(0, 0, 0, 0.778);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
