@@ -113,6 +113,28 @@
   transition: transform 0.3s ease-in-out;
 }
 
+.catalog-availability-check-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 5px;
+  cursor: default !important;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.catalog-unavailability-check-button {
+  background-color: rgb(128, 128, 128);
+  color: white;
+  padding: 5px;
+  cursor: default !important;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
 .catalog {
   margin: 10px 0 80px 0;
   display: flex;
@@ -292,9 +314,6 @@
 
 .form-item {
   gap: 10px;
-}
-
-.availability-control {
 }
 
 .form-items {
