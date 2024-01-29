@@ -18,6 +18,14 @@
   </div>
 </div>
 
+<div class="book-availability-check-buttons">
+  <% if (book.availability) { %>
+    <button class="book-availability-check-button">Available</button>
+  <% } else { %>
+    <button class="book-unavailability-check-button">Unavailable</button>
+  <% } %>
+</div>
+
 <div class="related-books">
   <% if (relatedBooks.length) { %>
   <h2 class="related-book-title">Related Books</h2>

@@ -234,8 +234,37 @@
   display: flex;
   margin-left: 50px;
   margin-top: 70px;
-  margin-bottom: 120px;
   gap: 100px;
+}
+
+.book-availability-check-buttons {
+  margin-bottom: 140px;
+}
+
+.book-availability-check-button {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 140px;
+  background-color: #4caf50;
+  padding: 10px 20px;
+  cursor: default !important;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.book-unavailability-check-button {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 140px;
+  background-color: rgb(128, 128, 128);
+  padding: 10px 20px;
+  cursor: default !important;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
 .individual-book-details {
@@ -265,8 +294,10 @@
   font-size: 14px;
   padding: 0.625em 1.5em;
   text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.554);
-  color: white;
+  background-color: rgb(25, 118, 210);
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -274,7 +305,8 @@
 }
 
 .editButton:hover {
-  background-color: rgba(0, 0, 0, 0.697);
+  background-color: rgb(21, 101, 192);
+  box-shadow: gba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
 }
 
 .delButton {
@@ -283,9 +315,11 @@
   font-size: 14px;
   background-color: #e74c3c;
   color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
   padding: 0.625em 1.5em;
   border: none;
   border-radius: 5px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
