@@ -13,6 +13,11 @@
         <img width="200px" src="<%= book.imageUrl %>" />
         <h3><%= book.title %></h3>
         <p><%= book.author %></p>
+        <% if (book.availability) { %>
+          <button class="catalog-availability-check-button" disabled>Available</button>
+        <% } else { %>
+          <button class="catalog-unavailability-check-button" disabled>Unavailable</button>
+        <% } %>
       </a>
     </div>
     <% }) %>
